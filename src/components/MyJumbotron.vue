@@ -5,7 +5,7 @@
     <hr class="my-4" />
     <p>Easy to use, we created this web app just for you !</p>
     <hr class="my-4" />
-    <ListToDo v-bind:list="list"></ListToDo>
+    <ListToDo v-on:clickFromList="onChildClick" @clickFromList="toEmit3" v-bind:list="list"></ListToDo>
   </div>
 </template>
 
@@ -17,9 +17,18 @@ export default {
     list: {
       type: Array,
     },
+    to_do: Object,
   },
   components: {
     ListToDo,
+  },
+  methods: {
+    toEmit3: function () {
+      this.$emit("clickFromJumbo", this.to_do)
+    },
+    onChildClick: function(value){
+      this.to_do = value
+    }
   },
 };
 </script>

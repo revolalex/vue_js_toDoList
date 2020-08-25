@@ -1,21 +1,16 @@
 <template>
   <div id="app">
-    <MyJumbotron v-bind:list="list">
-      <ListToDo>
-        
-      </ListToDo>
-    </MyJumbotron>
+    <MyJumbotron @:clickFromJumbo="listCliked" v-bind:list="list"></MyJumbotron>
   </div>
 </template>
 
 <script>
 import MyJumbotron from "./components/MyJumbotron";
-import ListToDo from "./components/ListToDo";
+
 export default {
   name: "App",
   components: {
     MyJumbotron,
-    ListToDo,
   },
   data: function () {
     return {
@@ -27,8 +22,21 @@ export default {
       ],
     };
   },
+  methods: {
+    listCliked: function () {
+      console.log("succes");
+      event.target.classList.toggle("done");
+      event.target.icon.toggle("check-circle-fill");
+    },
+  },
 };
 </script>
 
 <style>
+.done {
+  text-decoration: line-through;
+}
+.doneIcon {
+  display: none;
+}
 </style>
