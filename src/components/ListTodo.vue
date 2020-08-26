@@ -23,12 +23,13 @@ export default {
     SingleToDo,
   },
   methods: {
+    onChildClick: function(value){
+      this.to_do = value
+    },
     toEmit2: function () {
       this.$emit("clickFromList", this.to_do)
     },
-    onChildClick: function(value){
-      this.to_do = value
-    }
+    
   },
 };
 </script>

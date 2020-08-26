@@ -1,8 +1,9 @@
 <template>
-  <div @click="emitToggleEvent">
-    <p>
-      <b-icon icon="check2-circle"></b-icon>
-      <b-icon icon="check-circle-fill"></b-icon>
+  <div>
+    <p @click="emitToggleEvent" v-bind:class="{done : !to_do.todo}">
+      
+      <b-icon icon="check2-circle" v-if="to_do.todo"></b-icon>
+      <b-icon icon="check-circle-fill" v-else></b-icon>
       {{ to_do.name }}
     </p>
   </div>
@@ -26,7 +27,5 @@ export default {
 .done {
   text-decoration: line-through;
 }
-.doneIcon {
-  display: none;
-}
+
 </style>

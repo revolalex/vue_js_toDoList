@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    <MyJumbotron @:clickFromJumbo="listCliked" v-bind:list="list"></MyJumbotron>
+    <MyJumbotron
+      v-on:clickFromJumbo="onChildClick"
+      @:clickFromJumbo="listClicked"
+      v-bind:list="list"
+      v-on:newToDoFromJumbo="newToDo"
+    ></MyJumbotron>
   </div>
 </template>
 
@@ -20,13 +25,19 @@ export default {
         { id: 2, name: "Vendre le sujet", todo: true },
         { id: 3, name: "Partir en vacance", todo: true },
       ],
+      to_do: Object,
+      task: String,
     };
   },
+
   methods: {
-    listCliked: function () {
-      console.log("succes");
-      event.target.classList.toggle("done");
-      event.target.icon.toggle("check-circle-fill");
+    onChildClick: function (value) {
+      this.to_do = value;
+      this.to_do.to_do.todo = !this.to_do.to_do.todo;
+    },
+    newToDo: function (value) {
+      this.task = value;
+      this.list.push({id: this.list.length, name: this.task, todo: true})
     },
   },
 };
@@ -35,8 +46,5 @@ export default {
 <style>
 .done {
   text-decoration: line-through;
-}
-.doneIcon {
-  display: none;
 }
 </style>
