@@ -1,28 +1,53 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <MyJumbotron
+      v-on:clickFromJumbo="onChildClick"
+      v-bind:list="list"
+      v-on:newToDoFromJumbo="newToDo"
+    ></MyJumbotron>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MyJumbotron from "./components/MyJumbotron";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    MyJumbotron,
+  },
+  data: function () {
+    return {
+      list: [
+        { id: 0, name: "Ecrire le sujet", todo: true },
+        { id: 1, name: "Faire le sujet", todo: true },
+        { id: 2, name: "Vendre le sujet", todo: true },
+        { id: 3, name: "Partir en vacance", todo: true },
+      ],
+      to_do: Object,
+      task: String,
+    };
+  },
+
+  methods: {
+    onChildClick: function (value) {
+      this.to_do = value;
+      this.to_do.to_do.todo = !this.to_do.to_do.todo;
+    },
+    newToDo: function (value) {
+      this.task = value;
+      if (this.task.length > 0) {
+        this.list.push({ id: this.list.length, name: this.task, todo: true });
+      } else {
+        window.alert("Merci de saisir une New Task");
+      }
+    },
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.done {
+  text-decoration: line-through;
 }
 </style>
