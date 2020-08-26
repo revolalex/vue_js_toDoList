@@ -2,7 +2,6 @@
   <div id="app">
     <MyJumbotron
       v-on:clickFromJumbo="onChildClick"
-      @:clickFromJumbo="listClicked"
       v-bind:list="list"
       v-on:newToDoFromJumbo="newToDo"
     ></MyJumbotron>
@@ -37,7 +36,11 @@ export default {
     },
     newToDo: function (value) {
       this.task = value;
-      this.list.push({id: this.list.length, name: this.task, todo: true})
+      if (this.task.length > 0) {
+        this.list.push({ id: this.list.length, name: this.task, todo: true });
+      } else {
+        window.alert("Merci de saisir une New Task");
+      }
     },
   },
 };

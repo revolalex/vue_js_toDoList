@@ -10,7 +10,6 @@
         id="input-large"
         size="lg"
         placeholder="ToDo name"
-        required
         ></b-form-input>
       <b-button id="button" @click="emitToggleEvent">Add</b-button>
  
