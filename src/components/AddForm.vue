@@ -11,6 +11,7 @@
         id="input-large"
         size="lg"
         placeholder="ToDo name"
+        @keyup.enter.native="emitToggleEvent"
       ></b-form-input>
       <b-button id="button" @click="emitToggleEvent">Add</b-button>
     </b-row>
