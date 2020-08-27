@@ -2,7 +2,7 @@
   <div>
     <ul>
       <li v-for="to_do in list" :key="to_do.id">
-        <SingleToDo v-on:clickFromSingle="onChildClick" @clickFromSingle="toEmit2" v-bind:to_do="to_do"></SingleToDo>
+        <SingleToDo v-bind:to_do="to_do"></SingleToDo>
       </li>
     </ul>
   </div>
@@ -17,19 +17,10 @@ export default {
     list: {
       type: Array,
     },
-    to_do: Object,
+
   },
   components: {
     SingleToDo,
-  },
-  methods: {
-    onChildClick: function(value){
-      this.to_do = value
-    },
-    toEmit2: function () {
-      this.$emit("clickFromList", this.to_do)
-    },
-    
   },
 };
 </script>

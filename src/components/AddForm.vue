@@ -3,16 +3,16 @@
     <b-row class="my-1">
       <label for="input-large">New Task</label>
 
+      <!-- v-model permet de bind -->
       <b-form-input
-        v-model="text"
+        v-model="text" 
         type="text"
         class="w-50"
         id="input-large"
         size="lg"
         placeholder="ToDo name"
-        ></b-form-input>
+      ></b-form-input>
       <b-button id="button" @click="emitToggleEvent">Add</b-button>
- 
     </b-row>
   </b-container>
 </template>

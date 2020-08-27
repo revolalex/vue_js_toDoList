@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <MyJumbotron
-      v-on:clickFromJumbo="onChildClick"
-      v-bind:list="list"
-      v-on:newToDoFromJumbo="newToDo"
-    ></MyJumbotron>
+    <MyJumbotron v-on:idOfToDoClick="taskWasClick" v-bind:list="list" v-on:newToDoFromJumbo="newToDo"></MyJumbotron>
   </div>
 </template>
 
@@ -24,15 +20,14 @@ export default {
         { id: 2, name: "Vendre le sujet", todo: true },
         { id: 3, name: "Partir en vacance", todo: true },
       ],
-      to_do: Object,
-      task: String,
+      taskClick: Number,
     };
   },
 
   methods: {
-    onChildClick: function (value) {
-      this.to_do = value;
-      this.to_do.to_do.todo = !this.to_do.to_do.todo;
+    taskWasClick(id) {
+      this.taskClick = id;
+      this.list[id].todo = !this.list[id].todo;
     },
     newToDo: function (value) {
       this.task = value;

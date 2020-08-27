@@ -1,7 +1,6 @@
 <template>
   <div>
-    <p @click="emitToggleEvent" v-bind:class="{done : !to_do.todo}">
-      
+    <p @click="emitToggleEvent" v-bind:class="{done : !to_do.todo}"> 
       <b-icon icon="check2-circle" v-if="to_do.todo"></b-icon>
       <b-icon icon="check-circle-fill" v-else></b-icon>
       {{ to_do.name }}
@@ -17,7 +16,8 @@ export default {
   },
   methods: {
     emitToggleEvent: function () {
-      this.$emit("clickFromSingle", {to_do: this.to_do})
+      // this.$emit("clickFromSingle", {to_do: this.to_do})
+      this.$parent.$parent.$emit("idOfToDoClick", this.to_do.id)
     },
   },
   

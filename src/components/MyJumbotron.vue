@@ -4,10 +4,10 @@
     <p class="lead">New Features we will have to done for this project</p>
     <hr class="my-4" />
     <p>Easy to use, we created this web app just for you !</p>
-    <Sentence v-bind:list="list"></Sentence>
+    <Sentence v-bind:list="list" />
     <hr class="my-4" />
-    <ListToDo v-on:clickFromList="onChildClick" @clickFromList="toEmit3" v-bind:list="list"></ListToDo>
-    <AddForm v-on:newToDoFromAddForm="addWasClick" @newToDoFromAddForm="newToDoJumbo"></AddForm>
+    <ListToDo v-bind:list="list" />
+    <AddForm v-on:newToDoFromAddForm="addWasClick" @newToDoFromAddForm="newToDoJumbo" />
   </div>
 </template>
 
@@ -30,12 +30,6 @@ export default {
     Sentence,
   },
   methods: {
-    onChildClick: function (value) {
-      this.to_do = value;
-    },
-    toEmit3: function () {
-      this.$emit("clickFromJumbo", this.to_do);
-    },
     addWasClick: function(value){
       this.task = value;
     },
