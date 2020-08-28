@@ -1,14 +1,11 @@
 <template>
   <div id="app">
-    <MyJumbotron
-      v-on:clickFromJumbo="onChildClick"
-      v-bind:list="list"
-      v-on:newToDoFromJumbo="newToDo"
-    ></MyJumbotron>
+    <MyJumbotron v-bind:list="list"></MyJumbotron>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 import MyJumbotron from "./components/MyJumbotron";
 
 export default {
@@ -18,30 +15,20 @@ export default {
   },
   data: function () {
     return {
-      list: [
-        { id: 0, name: "Ecrire le sujet", todo: true },
-        { id: 1, name: "Faire le sujet", todo: true },
-        { id: 2, name: "Vendre le sujet", todo: true },
-        { id: 3, name: "Partir en vacance", todo: true },
-      ],
-      to_do: Object,
-      task: String,
+      list: [],
     };
   },
-
-  methods: {
-    onChildClick: function (value) {
-      this.to_do = value;
-      this.to_do.to_do.todo = !this.to_do.to_do.todo;
-    },
-    newToDo: function (value) {
-      this.task = value;
-      if (this.task.length > 0) {
-        this.list.push({ id: this.list.length, name: this.task, todo: true });
-      } else {
-        window.alert("Merci de saisir une New Task");
+  mounted() {
+    axios.get("http://localhost:8081/todo/").then((response) => {
+      if (this.whatToDisplay == "done") {
+        response.data = response.data.filter((element) => !element.todo);
+      } else if (this.whatToDisplay == "all") {
+        response.data = response.data.filter((element) => element.name);
+      } else if (this.whatToDisplay == "todo") {
+        response.data = response.data.filter((element) => element.todo);
       }
-    },
+      this.list = response.data;
+    });
   },
 };
 </script>
