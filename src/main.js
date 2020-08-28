@@ -5,9 +5,11 @@ import './plugins/bootstrap-vue'
 import App from './App.vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import VueRouter from 'vue-router'
-
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import routes from './routes';
 
+Vue.use(VueAxios, axios)
 Vue.use(VueRouter)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)

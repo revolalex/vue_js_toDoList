@@ -6,22 +6,25 @@
         <router-link to="/new">New</router-link>
       </b-nav-item>
       <b-nav-item>
-        <router-link to="/todo">Todo</router-link>
+        <router-link  to="/todo">Todo</router-link>
       </b-nav-item>
-      <b-nav-item>
-        <router-link to="/done">Done</router-link>
+      <b-nav-item >
+        <router-link  to="/done">Done</router-link>
       </b-nav-item>
-      <b-nav-item>
+      <b-nav-item >
         <router-link to="/list">List</router-link>
       </b-nav-item>
     </b-navbar>
-    <router-view />
+    
   </div>
 </template>
 <script>
+// const axios = require("axios").default;
+
 export default {
   name: "MyHeader",
 };
+
 </script>
 <style>
 #color {

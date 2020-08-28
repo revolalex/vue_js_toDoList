@@ -2,7 +2,7 @@
   <div>
     <ul>
       <li v-for="to_do in list" :key="to_do.id">
-        <SingleToDo v-bind:to_do="to_do"></SingleToDo>
+        <SingleToDo v-on:idOfToDoClick="taskWasClick" v-bind:to_do="to_do"></SingleToDo>
       </li>
     </ul>
   </div>
@@ -10,18 +10,64 @@
 
 
 <script>
+import axios from "axios";
 import SingleToDo from "./SingleToDo";
 export default {
   name: "ListToDo",
-  props: {
-    list: {
-      type: Array,
-    },
-
+   updated() {
+    axios.get("http://localhost:8081/todo/").then((response) => {
+      if (this.whatToDisplay == "done") {
+        response.data = response.data.filter((element) => !element.todo);
+      } else if (this.whatToDisplay == "all") {
+        response.data = response.data.filter((element) => element.name);
+      } else if (this.whatToDisplay == "todo") {
+        response.data = response.data.filter((element) => element.todo);
+      }
+      this.list = response.data;
+    });
   },
+
+  mounted() {
+    axios.get("http://localhost:8081/todo/").then((response) => {
+      if (this.whatToDisplay == "done") {
+        response.data = response.data.filter((element) => !element.todo);
+      } else if (this.whatToDisplay == "all") {
+        response.data = response.data.filter((element) => element.name);
+      } else if (this.whatToDisplay == "todo") {
+        response.data = response.data.filter((element) => element.todo);
+      }
+      this.list = response.data;
+    });
+  },
+
+  props: {
+    // list: {
+    //   type: Array,
+    // },
+    whatToDisplay: String,
+  },
+  
+
   components: {
     SingleToDo,
   },
+    data: function () {
+    return {
+      list: [],
+    };
+  },
+  methods: {
+    taskWasClick(id) {
+      this.list[id].todo = !this.list[id].todo;
+      axios.put(`http://localhost:8081/todo/${id}`);
+    },
+  },
+  computed: {
+
+  },
+
+ 
+
 };
 </script>
 <style>
