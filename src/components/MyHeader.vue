@@ -15,7 +15,6 @@
         <router-link to="/list">List</router-link>
       </b-nav-item>
     </b-navbar>
-    
   </div>
 </template>
 <script>

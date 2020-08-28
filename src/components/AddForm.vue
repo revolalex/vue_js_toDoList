@@ -1,33 +1,27 @@
 <template>
-<div>
-  <h3>{{ newTask }}</h3>
+  <div>
+    <h3>{{ newTask }}</h3>
     <b-container inline id="centered">
-    
-    <b-row class="my-1">
-      <label for="input-large">New Task</label>
-      
-
-      <!-- v-model permet de bind -->
-      <b-form-input
-        v-model="newTask"
-        type="text"
-        class="w-50"
-        id="input-large"
-        size="lg"
-        placeholder="ToDo name"
-        @keyup.enter="newToDo()"
-      ></b-form-input>
-      <b-button id="button" @click="newToDo">Add</b-button>
-    </b-row>
-  </b-container>
-
-</div>
-
+      <b-row class="my-1">
+        <label for="input-large">New Task</label>
+        <b-form-input
+          v-model="newTask"
+          type="text"
+          class="w-50"
+          id="input-large"
+          size="lg"
+          placeholder="ToDo name"
+          @keyup.enter="newToDo()"
+        ></b-form-input>
+        <b-button id="button" @click="newToDo">Add</b-button>
+      </b-row>
+    </b-container>
+  </div>
 </template>
 
 <script>
 import axios from "axios";
-// import { response } from "express";
+
 export default {
   data() {
     return {
@@ -59,7 +53,7 @@ export default {
         console.log(todoToAdd);
         // add the todo to the collection
         axios.post("http://localhost:8081/todo/", todoToAdd);
-        this.newTask = ""
+        this.newTask = "";
       } else {
         window.alert("Merci de saisir une New Task");
       }
@@ -67,8 +61,7 @@ export default {
   },
   mounted() {
     axios.get("http://localhost:8081/todo/").then((response) => {
-      this.list = response.data
-
+      this.list = response.data;
     });
   },
 };

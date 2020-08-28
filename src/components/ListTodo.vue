@@ -14,7 +14,28 @@ import axios from "axios";
 import SingleToDo from "./SingleToDo";
 export default {
   name: "ListToDo",
-   updated() {
+
+  props: {
+    whatToDisplay: String,
+  },
+
+  components: {
+    SingleToDo,
+  },
+  data: function () {
+    return {
+      list: [],
+    };
+  },
+  methods: {
+    taskWasClick(id) {
+      let targetTask = this.list.filter((element) => element.id == id);
+      targetTask.todo = !targetTask.todo;
+      axios.put(`http://localhost:8081/todo/${id}`);
+    },
+  },
+
+  updated() {
     axios.get("http://localhost:8081/todo/").then((response) => {
       if (this.whatToDisplay == "done") {
         response.data = response.data.filter((element) => !element.todo);
@@ -39,35 +60,6 @@ export default {
       this.list = response.data;
     });
   },
-
-  props: {
-    // list: {
-    //   type: Array,
-    // },
-    whatToDisplay: String,
-  },
-  
-
-  components: {
-    SingleToDo,
-  },
-    data: function () {
-    return {
-      list: [],
-    };
-  },
-  methods: {
-    taskWasClick(id) {
-      this.list[id].todo = !this.list[id].todo;
-      axios.put(`http://localhost:8081/todo/${id}`);
-    },
-  },
-  computed: {
-
-  },
-
- 
-
 };
 </script>
 <style>
