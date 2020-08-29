@@ -9,23 +9,22 @@
         ></SingleToDo>
       </li>
     </ul>
-     <!-- Using value -->
-  <b-button v-b-toggle="'collapse-2'" class="m-1">See détail of ToDo</b-button>
+    <!-- Using value -->
+    <b-button v-b-toggle="'collapse-2'" class="m-1">See détail of ToDo</b-button>
 
-  <!-- Element to collapse -->
-  <b-collapse id="collapse-2">
-    <b-pagination
-      align="center"
-      v-model="SingleToDo"
-      :total-rows="rows"
-      :per-page="perPage"
-      aria-controls="my-table"
-    ></b-pagination>
-    <b-table id="my-table" :items="list" :per-page="perPage" :current-page="SingleToDo" small></b-table>
+    <!-- Element to collapse -->
+    <b-collapse id="collapse-2">
+      <b-pagination
+        align="center"
+        v-model="currentPage"
+        :total-rows="rows"
+        :per-page="perPage"
+        aria-controls="my-table"
+      ></b-pagination>
+      <b-table id="my-table" :items="list" :per-page="perPage" :current-page="currentPage" small></b-table>
     </b-collapse>
   </div>
 </template>
-
 
 <script>
 import axios from "axios";
