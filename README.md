@@ -6,6 +6,7 @@
 * [Project setup](#project-setup)
 * [Screenshots](#screenshots)
 * [Technologies](#technologies)
+* [App](#app)
 * [Contact](#contact)
 
 ## General info
@@ -38,12 +39,27 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 ## Screenshots
-<img width="300" src="https://user-images.githubusercontent.com/56839789/91349208-46d34780-e7e5-11ea-9185-589ccb30c36c.gif">
+Full Stack (API - DB - Front) <br>
+<img width="600" src="https://user-images.githubusercontent.com/56839789/91637283-c0e31680-ea07-11ea-9ebb-4f42fc252fee.gif">
+
 
 ## Technologies
 * Vue.js
 * Bootstrap vue
 * Core-js
+* Vue-Router
+* Mongoose
+* Express
+* body-parser
+* axios
+
+## App
+This toDoList is a full stack project, all ToDos are store in the collection by using Moongosse, and use it's how API
+ - You can add a todo 
+ - You can delete a todo 
+ - You can change the state (todo: true or false)
+ - You can see the detail of the collection
+ - etc...
 
  
 ## Status
