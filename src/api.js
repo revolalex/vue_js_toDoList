@@ -1,17 +1,17 @@
 const Express = require("express");
 const Mongoose = require("mongoose");
 const BodyParser = require("body-parser");
-var cors = require('cors')
+var cors = require("cors");
 
 let app = Express();
 
 // MiddleWare
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
-app.use(cors())
+app.use(cors());
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+  res.header("Access-Control-Allow-Origin", "*");
   next();
 });
 
@@ -66,23 +66,46 @@ app.put("/todo/:id", async (request, response) => {
     let result = await toDoList.find({ id: request.params.id }).exec();
 
     let statut = !result[0].todo;
-    
+
     let filter = { id: request.params.id };
     let update = { todo: statut };
-    let doc = await toDoList.findOneAndUpdate(filter, update, { new: true }); 
+    let doc = await toDoList.findOneAndUpdate(filter, update, { new: true });
     response.send(doc);
   } catch (error) {
     response.status(500).send(error);
   }
 });
-app.delete("/todo/:id", async (request, response) => {
+
+
+// ENCOURS
+app.put("/todo/delete/:id", async (request, response) => {
   try {
-    let result = await toDoList.findOneAndDelete({ id: request.params.id });
-    response.send(result)
+    let idDeleted = request.params.id 
+    let allToDo = await toDoList.find().exec();
+    let maxLength = allToDo.length ;
+    console.log(maxLength);
+    let filtre = { id: maxLength };
+    let miseAjour = { id: idDeleted }
+    let todoModifyId = await toDoList.findOneAndUpdate(filtre, miseAjour, { new: true })
+    response.send(todoModifyId);
   } catch (error) {
     response.status(500).send(error);
   }
-})
+});
+
+
+
+
+
+
+app.delete("/todo/:id", async (request, response) => {
+  try {
+    let result = await toDoList.findOneAndDelete({ id: request.params.id });
+    response.send(result);
+  } catch (error) {
+    response.status(500).send(error);
+  }
+});
 
 app.listen(8081, () => {
   console.log("http://localhost:8081/");

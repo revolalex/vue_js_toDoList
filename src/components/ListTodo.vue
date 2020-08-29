@@ -21,7 +21,7 @@
         :per-page="perPage"
         aria-controls="my-table"
       ></b-pagination>
-      <b-table id="my-table" :items="list" :per-page="perPage" :current-page="currentPage" small></b-table>
+      <b-table id="my-table" :items="list" :per-page="perPage" :current-page="currentPage" large></b-table>
     </b-collapse>
   </div>
 </template>
@@ -60,6 +60,8 @@ export default {
     },
     deleteTask(id) {
       axios.delete(`http://localhost:8081/todo/${id}`);
+      //en cours
+      axios.put(`http://localhost:8081/todo/delete/${id}`)
     },
   },
 
@@ -91,6 +93,9 @@ export default {
 };
 </script>
 <style>
+body{
+  background-color: rgb(235, 235, 235);
+}
 li {
   list-style: none;
   display: flex;
