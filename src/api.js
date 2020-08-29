@@ -75,6 +75,14 @@ app.put("/todo/:id", async (request, response) => {
     response.status(500).send(error);
   }
 });
+app.delete("/todo/:id", async (request, response) => {
+  try {
+    let result = await toDoList.findOneAndDelete({ id: request.params.id });
+    response.send(result)
+  } catch (error) {
+    response.status(500).send(error);
+  }
+})
 
 app.listen(8081, () => {
   console.log("http://localhost:8081/");

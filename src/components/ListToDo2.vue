@@ -9,20 +9,6 @@
         ></SingleToDo>
       </li>
     </ul>
-     <!-- Using value -->
-  <b-button v-b-toggle="'collapse-2'" class="m-1">See détail of ToDo</b-button>
-
-  <!-- Element to collapse -->
-  <b-collapse id="collapse-2">
-    <b-pagination
-      align="center"
-      v-model="SingleToDo"
-      :total-rows="rows"
-      :per-page="perPage"
-      aria-controls="my-table"
-    ></b-pagination>
-    <b-table id="my-table" :items="list" :per-page="perPage" :current-page="SingleToDo" small></b-table>
-    </b-collapse>
   </div>
 </template>
 
@@ -43,16 +29,8 @@ export default {
   data: function () {
     return {
       list: [],
-      perPage: 3,
-      currentPage: 1,
     };
   },
-  computed: {
-    rows() {
-      return this.list.length;
-    },
-  },
-
   methods: {
     taskWasClick(id) {
       let targetTask = this.list.filter((element) => element.id == id);
