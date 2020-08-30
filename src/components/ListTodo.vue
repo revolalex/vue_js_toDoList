@@ -16,7 +16,13 @@
 
     <!-- Detail of Todo -->
     <!-- Using value -->
-    <b-button id="button" v-b-toggle="'collapse-2'" class="m-1">See détail of ToDo</b-button>
+    <b-button
+      id="button"
+      v-b-toggle="'collapse-2'"
+      class="m-1"
+      v-b-popover.hover.right="'press to see your database'"
+      title="Show database"
+    >See détail of ToDo</b-button>
     <!-- Element to collapse -->
     <b-collapse id="collapse-2">
       <b-pagination
@@ -66,9 +72,8 @@ export default {
     deleteTask(id) {
       axios.delete(`http://localhost:8081/todo/${id}`);
       axios.put(`http://localhost:8081/todo/delete/${id}`);
-      
+
       //en cours
-      
     },
   },
 
@@ -111,8 +116,6 @@ li {
   align-items: baseline;
   align-content: center;
 }
-
-
 
 .fade-enter-active {
   transition: transform 0.3s cubic-bezier(1, 0.5, 0.8, 1),

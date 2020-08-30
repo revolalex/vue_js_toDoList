@@ -64,7 +64,6 @@ app.get("/todo/:id", async (request, response) => {
 app.put("/todo/:id", async (request, response) => {
   try {
     let result = await toDoList.find({ id: request.params.id }).exec();
-
     let statut = !result[0].todo;
 
     let filter = { id: request.params.id };
@@ -72,36 +71,46 @@ app.put("/todo/:id", async (request, response) => {
     let doc = await toDoList.findOneAndUpdate(filter, update, { new: true });
     response.send(doc);
   } catch (error) {
+    console.log(error);
     response.status(500).send(error);
   }
 });
-
 
 // ENCOURS
 app.put("/todo/delete/:id", async (request, response) => {
   try {
-    let idDeleted = request.params.id 
+    let idDeleted = request.params.id;
     let allToDo = await toDoList.find().exec();
-    let maxLength = allToDo.length ;
-    let filtre = { id: maxLength };
-    let miseAjour = { id: idDeleted }
-    let todoModifyId = await toDoList.findOneAndUpdate(filtre, miseAjour, { new: true })
-    response.send(todoModifyId);
+    let maxLength = allToDo.length;
+
+    if (idDeleted != maxLength) {
+      let maxId = allToDo.reduce(function(prev, current) {
+        if (+current.id > +prev.id) {
+          return current;
+        } else {
+          return prev;
+        }
+      }).id;
+
+      let filtre = { id: maxId };
+      let miseAjour = { id: idDeleted };
+
+      let todoModifyId = await toDoList.findOneAndUpdate(filtre, miseAjour, {
+        new: true,
+      });
+      response.send(todoModifyId);
+    }
   } catch (error) {
     response.status(500).send(error);
   }
 });
-
-
-
-
-
 
 app.delete("/todo/:id", async (request, response) => {
   try {
     let result = await toDoList.findOneAndDelete({ id: request.params.id });
     response.send(result);
   } catch (error) {
+    console.log(error);
     response.status(500).send(error);
   }
 });

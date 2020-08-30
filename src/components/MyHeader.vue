@@ -27,6 +27,8 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  color: rgb(194, 24, 24);
 }
+
+
+
 </style>

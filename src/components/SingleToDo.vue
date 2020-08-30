@@ -1,14 +1,10 @@
 <template>
-  <div>
-
-    <p @click="emitToggleEvent" v-bind:class="{done : !to_do.todo}">
-      <b-icon icon="check2-circle" v-if="to_do.todo"></b-icon>
-      <b-icon icon="check-circle-fill" v-else></b-icon>
-      {{ to_do.name }}
-      <b-icon @click="emitDelete" id="trash" icon="trash"></b-icon>
-    </p>
-
-  </div>  
+  <div id="myDiv">
+    <b-icon class="myIcon" icon="check2-circle" v-if="to_do.todo"></b-icon>
+    <b-icon class="myIcon"  icon="check-circle-fill" v-else></b-icon>
+    <p @click="emitToggleEvent" v-bind:class="{done : !to_do.todo}">{{ to_do.name }}</p>
+    <b-icon @click="emitDelete" id="trash" icon="trash"></b-icon>
+  </div>
 </template>
 
 <script>
@@ -28,11 +24,20 @@ export default {
 };
 </script>
 <style>
+#myDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .done {
   text-decoration: line-through;
 }
 #trash {
   margin-right: 9vh;
+  margin-top: 0.9vh;
+}
+.myIcon{
+  margin-top: 0.9vh;
 }
 .fade-enter-active {
   transition: transform 0.3s cubic-bezier(1, 0.5, 0.8, 1),
