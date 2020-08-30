@@ -40,7 +40,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Screenshots
 Full Stack (API - DB - Front) <br>
-<img width="600" src="https://user-images.githubusercontent.com/56839789/91637283-c0e31680-ea07-11ea-9ebb-4f42fc252fee.gif">
+<img width="600" src="https://user-images.githubusercontent.com/56839789/91654045-22f25900-eaa6-11ea-99c7-ddb8c27d6b1f.gif">
 
 
 ## Technologies
