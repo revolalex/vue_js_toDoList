@@ -8,7 +8,9 @@
       <p>Easy to use, we created this web app just for you !</p>
       <Sentence />
       <hr class="my-4" />
-      <router-view />
+      <transition name="fade" mode="out-in">
+        <router-view />
+      </transition>
     </div>
   </div>
 </template>

@@ -13,9 +13,43 @@
           placeholder="ToDo name"
           @keyup.enter="newToDo()"
         ></b-form-input>
-        <b-button id="button" @click="newToDo">Add</b-button>
+        <b-button
+          id="button"
+          @click="newToDo"
+          v-b-popover.hover.right="'type a toDo'"
+          title="Add a toDO"
+        >Add</b-button>
       </b-row>
     </b-container>
+    <br />
+    <br />
+
+    <div>
+      <b-button
+        v-b-toggle.sidebar-right
+        v-b-popover.hover.bottom="'Click Here to read the documentaion'"
+        title="Information"
+      >About</b-button>
+      <b-sidebar id="sidebar-right" title="About" right shadow>
+        <div class="px-3 py-2">
+          <p class="aboutText">This ToDoList is a full stack project with vue.js</p>
+          <p>Use the navBar for:</p>
+          <ul class="listAbout">
+            <li>Todo => All toDo</li>
+            <li>Done => All done toDos</li>
+            <li>List => All toDos</li>
+          </ul>
+          <b-img src="https://picsum.photos/500/500/?image=54" fluid thumbnail></b-img>
+          <p class="aboutText">What you can do:</p>
+          <ul class="listAbout">
+            <li>Add a new toDo</li>
+            <li>Change the status of the toDos (done or not)</li>
+            <li>Delete a toDos</li>
+            <li>See you toDos like in database</li>
+          </ul>
+        </div>
+      </b-sidebar>
+    </div>
   </div>
 </template>
 
@@ -77,11 +111,27 @@ label {
   text-align: center;
   align-items: center;
   margin: auto;
-  width: 80%;
+  width: 60%;
   border: 3px solid rgb(157, 160, 157);
   padding: 10px;
 }
 #button {
-  margin-left: 10px;
+  padding-left: 10px;
+}
+.aboutText {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 640px) {
+  #centered {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    width: 450px;
+    border: 3px solid rgb(157, 160, 157);
+    padding: 10px;
+  }
 }
 </style>
