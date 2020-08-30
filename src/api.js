@@ -83,7 +83,6 @@ app.put("/todo/delete/:id", async (request, response) => {
     let idDeleted = request.params.id 
     let allToDo = await toDoList.find().exec();
     let maxLength = allToDo.length ;
-    console.log(maxLength);
     let filtre = { id: maxLength };
     let miseAjour = { id: idDeleted }
     let todoModifyId = await toDoList.findOneAndUpdate(filtre, miseAjour, { new: true })

@@ -1,17 +1,22 @@
 <template>
   <div>
-    <ul>
-      <li v-for="to_do in list" :key="to_do.id">
-        <SingleToDo
-          v-on:idOfDeleted="deleteTask"
-          v-on:idOfToDoClick="taskWasClick"
-          v-bind:to_do="to_do"
-        ></SingleToDo>
-      </li>
-    </ul>
-    <!-- Using value -->
-    <b-button v-b-toggle="'collapse-2'" class="m-1">See détail of ToDo</b-button>
+    <!-- List ToDo -->
 
+    <ul>
+      <transition-group name="fade" tag="ul">
+        <li v-for="to_do in list" :key="to_do.id">
+          <SingleToDo
+            v-on:idOfDeleted="deleteTask"
+            v-on:idOfToDoClick="taskWasClick"
+            v-bind:to_do="to_do"
+          ></SingleToDo>
+        </li>
+      </transition-group>
+    </ul>
+
+    <!-- Detail of Todo -->
+    <!-- Using value -->
+    <b-button id="button" v-b-toggle="'collapse-2'" class="m-1">See détail of ToDo</b-button>
     <!-- Element to collapse -->
     <b-collapse id="collapse-2">
       <b-pagination
@@ -60,8 +65,10 @@ export default {
     },
     deleteTask(id) {
       axios.delete(`http://localhost:8081/todo/${id}`);
+      axios.put(`http://localhost:8081/todo/delete/${id}`);
+      
       //en cours
-      axios.put(`http://localhost:8081/todo/delete/${id}`)
+      
     },
   },
 
@@ -93,7 +100,7 @@ export default {
 };
 </script>
 <style>
-body{
+body {
   background-color: rgb(235, 235, 235);
 }
 li {
@@ -103,5 +110,24 @@ li {
   justify-content: center;
   align-items: baseline;
   align-content: center;
+}
+
+
+
+.fade-enter-active {
+  transition: transform 0.3s cubic-bezier(1, 0.5, 0.8, 1),
+    color 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.fade-leave-active {
+  transition: transform 0.5s cubic-bezier(1, 0.5, 0.8, 1),
+    color 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.fade-enter {
+  color: rgb(170, 170, 170);
+  transform: translateX(100px);
+}
+.fade-leave-to {
+  transform: translateX(100px);
+  color: rgb(170, 170, 170);
 }
 </style>

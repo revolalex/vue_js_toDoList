@@ -14,6 +14,7 @@
           @keyup.enter="newToDo()"
         ></b-form-input>
         <b-button id="button" @click="newToDo">Add</b-button>
+        
       </b-row>
     </b-container>
   </div>
@@ -72,19 +73,32 @@ label {
   padding-right: 10px;
 }
 #centered {
+
   display: flex;
   justify-content: space-around;
   text-align: center;
   align-items: center;
   margin: auto;
-  width: 80%;
+  width: 60%;
   border: 3px solid rgb(157, 160, 157);
   padding: 10px;
 }
 #button {
-  margin-left: 10px;
+  padding-left: 10px;
 
 }
+@media screen and (max-width: 640px) {
+  #centered {
 
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  width: 450px;
+  border: 3px solid rgb(157, 160, 157);
+  padding: 10px;
+}
+}
 
 </style>
