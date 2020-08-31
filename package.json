@@ -10,7 +10,6 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "start": "node api.js",
-    "build": "node build/build.js",
     "postinstall": "npm run build"
   },
   "dependencies": {
