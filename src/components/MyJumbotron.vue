@@ -9,7 +9,7 @@
       <Sentence />
       <hr class="my-4" />
       <transition name="fade" mode="out-in">
-        <router-view />
+        <router-view :key="$route.fullPath" />
       </transition>
     </div>
   </div>
