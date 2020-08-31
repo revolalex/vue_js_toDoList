@@ -14,7 +14,8 @@ Vue.use(VueRouter)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 
-Vue.config.productionTip = false
+// if i build production
+Vue.config.productionTip = true
 
 const router = new VueRouter({routes});
 
