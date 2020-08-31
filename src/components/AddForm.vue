@@ -44,7 +44,7 @@
           <ul class="listAbout">
             <li>Add a new toDo</li>
             <li>Change the status of the toDos (done or not)</li>
-            <li>Delete a toDos</li>
+            <li>Delete a toDo</li>
             <li>See you toDos like in database</li>
           </ul>
         </div>
