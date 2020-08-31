@@ -1,5 +1,7 @@
 import AddForm from "./components/AddForm";
-// import ListToDo from "./components/ListToDo";
+
+import ListToDo from "./components/ListTodo";
+
 
 const routes = [
   { path: "/new", component: AddForm },
