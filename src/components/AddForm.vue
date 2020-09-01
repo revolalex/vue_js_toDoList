@@ -17,7 +17,7 @@
           id="button"
           @click="newToDo"
           v-b-popover.hover.right="'type a toDo'"
-          title="Add a toDO"
+          title="Add a toDo"
         >Add</b-button>
       </b-row>
     </b-container>
