@@ -20,7 +20,8 @@
     "mongoose": "^5.10.1",
     "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
-    "vue-router": "^3.4.3"
+    "vue-router": "^3.4.3",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
     "@babel/polyfill": "^7.7.0",
@@ -32,6 +33,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "mutationobserver-shim": "^0.3.3",
+    "node-sass": "^4.14.1",
     "popper.js": "^1.16.0",
     "portal-vue": "^2.1.6",
     "vue-cli-plugin-bootstrap": "~0.4.0",
