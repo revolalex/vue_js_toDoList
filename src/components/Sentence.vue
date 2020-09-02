@@ -1,12 +1,14 @@
 <template>
   <div>
-
-    <p v-if="numberOfToDo() === numberOfToDoTrue() && numberOfToDo() > 0" id="timeToWork" key="list">
+    <p
+      v-if="numberOfToDo() === numberOfToDoTrue() && numberOfToDo() > 0"
+      id="timeToWork"
+      key="list"
+    >
       <b-icon-emoji-angry class="iconRight"></b-icon-emoji-angry>
       It's time to start working you have {{numberOfToDoTrue()}} tasks to do !!
       <b-icon-emoji-angry class="iconLeft"></b-icon-emoji-angry>
     </p>
-
 
     <p v-else-if="numberOfToDoFalse() < halfNumberOfToDo()" id="continue">
       <b-icon-emoji-smile class="iconRight"></b-icon-emoji-smile>
@@ -29,7 +31,10 @@
       <b-icon-emoji-sunglasses class="iconLeft"></b-icon-emoji-sunglasses>
     </p>
 
-    <p v-if="numberOfToDo() === numberOfToDoTrue() && numberOfToDo() > 0" id="timeToWork">You are a joke, a {{numberOfToDoFalse()}} !!</p>
+    <p
+      v-if="numberOfToDo() === numberOfToDoTrue() && numberOfToDo() > 0"
+      id="timeToWork"
+    >You are a joke, a {{numberOfToDoFalse()}} !!</p>
     <p
       v-else-if="numberOfToDoFalse() < halfNumberOfToDo()"
       id="continue"
@@ -40,15 +45,21 @@
       id="good"
     >Continue {{numberOfToDoFalse()}} toDo done !</p>
 
-    <p v-if="numberOfToDo() === numberOfToDoFalse() && numberOfToDo() > 0" id="congratulation">Bravo !! All done Superman</p>
+    <p
+      v-if="numberOfToDo() === numberOfToDoFalse() && numberOfToDo() > 0"
+      id="congratulation"
+    >Bravo !! All done Superman</p>
 
     <transition name="fade">
-      <img src="../assets/super.png" alt="superman" v-if="numberOfToDo() === numberOfToDoFalse() && numberOfToDo() > 0" />
+      <img
+        src="../assets/super.png"
+        alt="superman"
+        v-if="numberOfToDo() === numberOfToDoFalse() && numberOfToDo() > 0"
+      />
     </transition>
-     <transition name="fade" v-if="numberOfToDo() == numberOfToDoTrue()  && numberOfToDo() > 0 ">
-      <img src="../assets/joker.png" alt="joker"  />
+    <transition name="fade" v-if="numberOfToDo() == numberOfToDoTrue()  && numberOfToDo() > 0 ">
+      <img src="../assets/joker.png" alt="joker" />
     </transition>
-
 
     <div class="flier">
       <img
@@ -58,9 +69,7 @@
         v-if="numberOfToDo() === numberOfToDoFalse() && numberOfToDo() > 0"
       />
     </div>
-    
   </div>
-
 </template>
 <script>
 import axios from "axios";

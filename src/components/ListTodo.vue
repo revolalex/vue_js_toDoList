@@ -42,7 +42,6 @@ import axios from "axios";
 import SingleToDo from "./SingleToDo";
 export default {
   name: "ListToDo",
-
   props: {
     whatToDisplay: String,
   },
@@ -87,6 +86,7 @@ export default {
         response.data = response.data.filter((element) => element.todo);
       }
       this.list = response.data;
+
     });
   },
 

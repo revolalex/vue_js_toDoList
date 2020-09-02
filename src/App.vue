@@ -5,11 +5,12 @@
 </template>
 
 <script>
-// import axios from "axios";
 import MyJumbotron from "./components/MyJumbotron";
+import axios from "axios";
 
 export default {
   name: "App",
+
   components: {
     MyJumbotron,
   },
@@ -17,6 +18,12 @@ export default {
     return {
       list: [],
     };
+  },
+  beforeMount() {
+    axios.get("http://localhost:8081/todo/").then((response) => {
+      console.log(response.data);
+      this.$store.dispatch("GET_LIST", response.data);
+    });
   },
 };
 </script>
