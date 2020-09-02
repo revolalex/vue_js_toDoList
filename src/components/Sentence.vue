@@ -72,7 +72,7 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+// import axios from "axios";
 export default {
   name: "Sentence",
   data() {
@@ -107,28 +107,7 @@ export default {
     },
   },
   mounted() {
-    axios.get("http://localhost:8081/todo/").then((response) => {
-      if (this.whatToDisplay == "done") {
-        response.data = response.data.filter((element) => !element.todo);
-      } else if (this.whatToDisplay == "all") {
-        response.data = response.data.filter((element) => element.name);
-      } else if (this.whatToDisplay == "todo") {
-        response.data = response.data.filter((element) => element.todo);
-      }
-      this.list = response.data;
-    });
-  },
-  updated() {
-    axios.get("http://localhost:8081/todo/").then((response) => {
-      if (this.whatToDisplay == "done") {
-        response.data = response.data.filter((element) => !element.todo);
-      } else if (this.whatToDisplay == "all") {
-        response.data = response.data.filter((element) => element.name);
-      } else if (this.whatToDisplay == "todo") {
-        response.data = response.data.filter((element) => element.todo);
-      }
-      this.list = response.data;
-    });
+    this.list = this.$store.state.list;
   },
 };
 </script>

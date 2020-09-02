@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MyHeader v-bind:list="list" />
+    <MyHeader  />
     <div class="jumbotron jumbotron-fluid" id="center">
       <h1 class="display-4">ToDo List</h1>
       <p class="lead">New Features we will have to done for this project</p>
@@ -9,7 +9,7 @@
       <Sentence />
       <hr class="my-4" />
       <transition name="fade" mode="out-in">
-        <router-view :key="$route.fullPath" />
+        <router-view :key="$route.fullPath"/>
       </transition>
     </div>
   </div>
@@ -18,17 +18,25 @@
 <script>
 import Sentence from "./Sentence";
 import MyHeader from "./MyHeader";
+// import axios from 'axios'
 export default {
   name: "MyJumbotron",
-  props: {
-    list: {
-      type: Array,
-    },
-  },
+
   components: {
     Sentence,
     MyHeader,
   },
+  //  mounted() {
+  //   axios.get("http://localhost:8081/todo/").then((response) => {
+  //     this.$store.dispatch("GET_LIST", response.data);
+  //   });
+  // },
+
+  // updated() {
+  //   axios.get("http://localhost:8081/todo/").then((response) => {
+  //     this.$store.dispatch("GET_LIST", response.data);
+  //   });
+  // },
 };
 </script>
 

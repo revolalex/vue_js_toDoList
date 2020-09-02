@@ -1,17 +1,15 @@
 <template>
   <div id="myDiv">
     <b-icon class="myIcon" icon="check2-circle" v-if="to_do.todo"></b-icon>
-    <b-icon class="myIcon" icon="check-circle-fill" v-else></b-icon>
+    <b-icon class="myIcon"  icon="check-circle-fill" v-else></b-icon>
     <p @click="emitToggleEvent" v-bind:class="{done : !to_do.todo}">{{ to_do.name }}</p>
     <b-icon @click="emitDelete" id="trash" icon="trash"></b-icon>
   </div>
 </template>
 
 <script>
-import store from "./TodoStore";
 export default {
   name: "SingleToDo",
-  store: store,
   props: {
     to_do: Object,
   },
@@ -22,6 +20,7 @@ export default {
     emitDelete: function () {
       this.$emit("idOfDeleted", this.to_do.id);
     },
+    
   },
 };
 </script>
@@ -38,7 +37,7 @@ export default {
   margin-right: 9vh;
   margin-top: 0.9vh;
 }
-.myIcon {
+.myIcon{
   margin-top: 0.9vh;
 }
 .fade-enter-active {

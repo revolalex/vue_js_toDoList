@@ -18,21 +18,23 @@ const mutations = {
     state.list.push(newTask);
   },
   UPDATE_BOOLEAN: (state, id) => {
-    state.list[id].todo = !state.list[id].todo;
+    let index = state.list.findIndex(element => element.id === id)
+    state.list[index].todo = !state.list[index].todo;
   },
   DELETE_TASK: (state, id) => {
-    state.list[id];
+    let index = state.list.findIndex(element => element.id === id)
+    state.list.splice(index, 1)
   },
 };
 
 // GETTERS
 const getters = {
-  TASK_TO_DISPLAY: (state) => (toDisplay) => {
-    if (toDisplay === "all") {
+  TASK_TO_DISPLAY: (state) => (whatToDisplay) => {
+    if (whatToDisplay === "all") {
       return state.list;
-    } else if (toDisplay === "done") {
+    } else if (whatToDisplay === "done") {
       return state.list.filter((element) => element.todo === false);
-    } else {
+    } else if (whatToDisplay === "todo"){
       return state.list.filter((element) => element.todo === true);
     }
   },
@@ -41,7 +43,6 @@ const getters = {
 // ACTIONS
 const actions = {
   GET_LIST: (context, allToDO) => {
-    console.log(allToDO);
     context.commit("GET_ALL_TODO", allToDO);
   },
   ADD_TODO: (context, newTask) => {
