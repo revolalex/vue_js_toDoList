@@ -38,6 +38,10 @@ const getters = {
       return state.list.filter((element) => element.todo === true);
     }
   },
+  //EN COURS
+  SENTENCE_LIST:(state)=>{
+    return state.list
+  }
 };
 
 // ACTIONS

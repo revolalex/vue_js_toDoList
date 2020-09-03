@@ -99,11 +99,11 @@ export default {
       }
     },
   },
-  mounted() {
-    axios.get("http://localhost:8081/todo/").then((response) => {
-      this.list = response.data;
-    });
-  },
+  // mounted() {
+  //   axios.get("http://localhost:8081/todo/").then((response) => {
+  //     this.list = response.data;
+  //   });
+  // },
 };
 </script>
 <style>

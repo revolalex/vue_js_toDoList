@@ -10,21 +10,16 @@ import axios from "axios";
 
 export default {
   name: "App",
-  
+
   components: {
     MyJumbotron,
   },
-  mounted() {
-    axios.get("http://localhost:8081/todo/").then((response) => {
+  async beforeMount() {
+    console.log("coucou");
+    await axios.get("http://localhost:8081/todo/").then((response) => {
       this.$store.dispatch("GET_LIST", response.data);
     });
   },
-
-  // updated() {
-  //   axios.get("http://localhost:8081/todo/").then((response) => {
-  //     this.$store.dispatch("GET_LIST", response.data);
-  //   });
-  // },
 };
 </script>
 

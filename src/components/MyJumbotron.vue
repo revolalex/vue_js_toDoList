@@ -26,17 +26,6 @@ export default {
     Sentence,
     MyHeader,
   },
-  //  mounted() {
-  //   axios.get("http://localhost:8081/todo/").then((response) => {
-  //     this.$store.dispatch("GET_LIST", response.data);
-  //   });
-  // },
-
-  // updated() {
-  //   axios.get("http://localhost:8081/todo/").then((response) => {
-  //     this.$store.dispatch("GET_LIST", response.data);
-  //   });
-  // },
 };
 </script>
 

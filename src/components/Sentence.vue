@@ -81,14 +81,8 @@
   </div>
 </template>
 <script>
-// import axios from "axios";
 export default {
   name: "Sentence",
-  data() {
-    return {
-      list: [],
-    };
-  },
   methods: {
     numberOfToDo: function () {
       return this.list.length;
@@ -115,8 +109,10 @@ export default {
       return toDoFalse;
     },
   },
-  mounted() {
-    this.list = this.$store.state.list;
+  computed: {
+    list() {
+      return this.$store.state.list;
+    },
   },
 };
 </script>
