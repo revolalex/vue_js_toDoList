@@ -75,7 +75,7 @@ app.put("/todo/:id", async (request, response) => {
   }
 });
 
-// ENCOURS
+// Re-organise id
 app.put("/todo/delete/:id", async (request, response) => {
   try {
     let idDeleted = request.params.id;
