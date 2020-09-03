@@ -1,6 +1,6 @@
 
 ![](https://img.shields.io/badge/made%20with-vue.js-green?logo=vue.js).
-![](https://img.shields.io/badge/made%20with-Bootstrap-green?logo=Bootstrap).
+![](https://img.shields.io/badge/made%20with-Bootstrap_vue-blueviolet?logo=Bootstrap).
 ![](https://img.shields.io/badge/made%20with-Node.js-succes?logo=Node.js).
 ![](https://img.shields.io/badge/made%20with-mongoDB-blue?logo=mongoDB).
 
@@ -11,6 +11,7 @@
 <img src="https://img.shields.io/badge/Express-succes.svg" alt="Express">. 
 <img src="https://img.shields.io/badge/Mongoose-blue.svg" alt="Mangoose">. 
 <br>
+
 
 <img src="https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2Frevolalex%2Fvue_js_toDoList" alt="Hits">.
 
@@ -69,13 +70,15 @@ Full Stack (API - DB - Front) <br>
 
 ## Technologies
 * Vue.js
+* Vuex
 * Bootstrap vue
-* Core-js
 * Vue-Router
 * Mongoose
 * Express
 * body-parser
 * axios
+* Core-js
+
 
 ## App
 This toDoList is a full stack project, all ToDos are store in the collection by using Moongosse, and use it's how API
