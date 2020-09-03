@@ -1,6 +1,8 @@
 <template>
   <div>
+    <br>
     <h3>{{ newTask }}</h3>
+    
     <b-container inline id="centered">
       <b-row class="my-1">
         <label for="input-large">New Task</label>
@@ -17,10 +19,11 @@
           id="button"
           @click="newToDo"
           v-b-popover.hover.right="'type a toDo'"
-          title="Add a toDO"
+          title="Add a toDo"
         >Add</b-button>
       </b-row>
     </b-container>
+    
     <br />
     <br />
 
@@ -87,6 +90,9 @@ export default {
         console.log(todoToAdd);
         // add the todo to the collection
         axios.post("http://localhost:8081/todo/", todoToAdd);
+        // add the todo in store 
+        this.$store.dispatch("ADD_TODO", todoToAdd);
+        // clear the input
         this.newTask = "";
       } else {
         window.alert("Merci de saisir une New Task");

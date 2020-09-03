@@ -20,6 +20,7 @@ export default {
     emitDelete: function () {
       this.$emit("idOfDeleted", this.to_do.id);
     },
+    
   },
 };
 </script>

@@ -1,11 +1,11 @@
 <template>
   <div>
-    
+
     <p
-      v-if="numberOfToDo() === numberOfToDoTrue() 
-      && numberOfToDo() > 0"
+      v-if="numberOfToDo() === numberOfToDoTrue() && numberOfToDo() > 0"
       id="timeToWork"
-      key="list">
+      key="list"
+    >
       <b-icon-emoji-angry class="iconRight"></b-icon-emoji-angry>
       It's time to start working you have {{numberOfToDoTrue()}} tasks to do !!
       <b-icon-emoji-angry class="iconLeft"></b-icon-emoji-angry>
@@ -39,11 +39,9 @@
     </p>
 
     <p
-      v-if="numberOfToDo() === numberOfToDoTrue() 
-    && numberOfToDo() > 0"
+      v-if="numberOfToDo() === numberOfToDoTrue() && numberOfToDo() > 0"
       id="timeToWork"
     >You are a joke, a {{numberOfToDoFalse()}} !!</p>
-
     <p
       v-else-if="numberOfToDoFalse() < halfNumberOfToDo()"
       id="continue"
@@ -56,8 +54,8 @@
     >Continue {{numberOfToDoFalse()}} toDo done !</p>
 
     <p
-      v-if="numberOfToDo() === numberOfToDoFalse() 
-    && numberOfToDo() > 0"
+
+      v-if="numberOfToDo() === numberOfToDoFalse() && numberOfToDo() > 0"
       id="congratulation"
     >Bravo !! All done Superman</p>
 
@@ -83,7 +81,7 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+// import axios from "axios";
 export default {
   name: "Sentence",
   data() {
@@ -118,28 +116,7 @@ export default {
     },
   },
   mounted() {
-    axios.get("http://localhost:8081/todo/").then((response) => {
-      if (this.whatToDisplay == "done") {
-        response.data = response.data.filter((element) => !element.todo);
-      } else if (this.whatToDisplay == "all") {
-        response.data = response.data.filter((element) => element.name);
-      } else if (this.whatToDisplay == "todo") {
-        response.data = response.data.filter((element) => element.todo);
-      }
-      this.list = response.data;
-    });
-  },
-  updated() {
-    axios.get("http://localhost:8081/todo/").then((response) => {
-      if (this.whatToDisplay == "done") {
-        response.data = response.data.filter((element) => !element.todo);
-      } else if (this.whatToDisplay == "all") {
-        response.data = response.data.filter((element) => element.name);
-      } else if (this.whatToDisplay == "todo") {
-        response.data = response.data.filter((element) => element.todo);
-      }
-      this.list = response.data;
-    });
+    this.list = this.$store.state.list;
   },
 };
 </script>

@@ -3,7 +3,7 @@
     <!-- List ToDo -->
     <ul>
       <transition-group name="fade" tag="ul">
-        <li v-for="to_do in list" :key="to_do.id">
+        <li v-for="to_do in listToShow" :key="to_do.id">
           <SingleToDo
             v-on:idOfDeleted="deleteTask"
             v-on:idOfToDoClick="taskWasClick"
@@ -31,7 +31,7 @@
         :per-page="perPage"
         aria-controls="my-table"
       ></b-pagination>
-      <b-table id="my-table" :items="list" :per-page="perPage" :current-page="currentPage" large></b-table>
+      <b-table id="my-table" :items="listToShow" :per-page="perPage" :current-page="currentPage" large></b-table>
     </b-collapse>
   </div>
 </template>
@@ -41,7 +41,6 @@ import axios from "axios";
 import SingleToDo from "./SingleToDo";
 export default {
   name: "ListToDo",
-
   props: {
     whatToDisplay: String,
   },
@@ -60,46 +59,24 @@ export default {
     rows() {
       return this.list.length;
     },
+    listToShow() {
+      return this.$store.getters.TASK_TO_DISPLAY(this.whatToDisplay);
+    },
   },
-
   methods: {
     taskWasClick(id) {
-      let targetTask = this.list.filter((element) => element.id == id);
-      targetTask.todo = !targetTask.todo;
       axios.put(`http://localhost:8081/todo/${id}`);
+      this.$store.dispatch("CHANGE_STATUT", id);
     },
     deleteTask(id) {
       axios.delete(`http://localhost:8081/todo/${id}`);
       axios.put(`http://localhost:8081/todo/delete/${id}`);
-
-      //en cours
+      this.$store.dispatch("DELETE_TODO", id);
     },
   },
 
-  beforeUpdated() {
-    axios.get("http://localhost:8081/todo/").then((response) => {
-      if (this.whatToDisplay == "done") {
-        this.list = response.data.filter((element) => !element.todo);
-      } else if (this.whatToDisplay == "all") {
-        this.list  = response.data.filter((element) => element.name);
-      } else if (this.whatToDisplay == "todo") {
-        this.list  = response.data.filter((element) => element.todo);
-      }
-
-    });
-  },
-
   mounted() {
-    axios.get("http://localhost:8081/todo/").then((response) => {
-      if (this.whatToDisplay == "done") {
-        response.data = response.data.filter((element) => !element.todo);
-      } else if (this.whatToDisplay == "all") {
-        response.data = response.data.filter((element) => element.name);
-      } else if (this.whatToDisplay == "todo") {
-        response.data = response.data.filter((element) => element.todo);
-      }
-      this.list = response.data;
-    });
+    this.list = this.$store.getters.TASK_TO_DISPLAY(this.whatToDisplay);
   },
 };
 </script>

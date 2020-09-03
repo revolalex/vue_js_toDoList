@@ -44,7 +44,7 @@ app.post("/todo", async (request, response) => {
 
 app.get("/todo", async (request, response) => {
   try {
-    const result = await toDoList.find().exec();
+    const result = await toDoList.find();
     response.send(result);
   } catch (error) {
     response.status(500).send(error);
@@ -54,7 +54,7 @@ app.get("/todo", async (request, response) => {
 app.get("/todo/:id", async (request, response) => {
   try {
     let targetToDo = request.params.id;
-    const result = await toDoList.find({ id: targetToDo }).exec();
+    const result = await toDoList.find({ id: targetToDo });
     response.send(result);
   } catch (error) {
     response.status(500).send(error);
@@ -63,9 +63,8 @@ app.get("/todo/:id", async (request, response) => {
 
 app.put("/todo/:id", async (request, response) => {
   try {
-    let result = await toDoList.find({ id: request.params.id }).exec();
+    let result = await toDoList.find({ id: request.params.id });
     let statut = !result[0].todo;
-
     let filter = { id: request.params.id };
     let update = { todo: statut };
     let doc = await toDoList.findOneAndUpdate(filter, update, { new: true });
@@ -80,7 +79,7 @@ app.put("/todo/:id", async (request, response) => {
 app.put("/todo/delete/:id", async (request, response) => {
   try {
     let idDeleted = request.params.id;
-    let allToDo = await toDoList.find().exec();
+    let allToDo = await toDoList.find();
     let maxLength = allToDo.length;
 
     if (idDeleted != maxLength) {

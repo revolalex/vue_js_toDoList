@@ -1,23 +1,30 @@
 <template>
   <div id="app">
-    <MyJumbotron v-bind:list="list"></MyJumbotron>
+    <MyJumbotron></MyJumbotron>
   </div>
 </template>
 
 <script>
-// import axios from "axios";
 import MyJumbotron from "./components/MyJumbotron";
+import axios from "axios";
 
 export default {
   name: "App",
+  
   components: {
     MyJumbotron,
   },
-  data: function () {
-    return {
-      list: [],
-    };
+  mounted() {
+    axios.get("http://localhost:8081/todo/").then((response) => {
+      this.$store.dispatch("GET_LIST", response.data);
+    });
   },
+
+  // updated() {
+  //   axios.get("http://localhost:8081/todo/").then((response) => {
+  //     this.$store.dispatch("GET_LIST", response.data);
+  //   });
+  // },
 };
 </script>
 
