@@ -1,7 +1,6 @@
 <template>
   <div>
     <!-- List ToDo -->
-
     <ul>
       <transition-group name="fade" tag="ul">
         <li v-for="to_do in listToShow" :key="to_do.id">
@@ -75,6 +74,7 @@ export default {
       this.$store.dispatch("DELETE_TODO", id);
     },
   },
+
   mounted() {
     this.list = this.$store.getters.TASK_TO_DISPLAY(this.whatToDisplay);
   },

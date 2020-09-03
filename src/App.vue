@@ -15,6 +15,7 @@ export default {
     MyJumbotron,
   },
   async beforeMount() {
+    console.log("coucou");
     await axios.get("http://localhost:8081/todo/").then((response) => {
       this.$store.dispatch("GET_LIST", response.data);
     });

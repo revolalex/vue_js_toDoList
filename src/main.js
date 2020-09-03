@@ -13,7 +13,6 @@ import App from "./App.vue";
 import store from "./components/TodoStore";
 
 Vue.use(Vuex);
-
 Vue.use(VueAxios, axios);
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
