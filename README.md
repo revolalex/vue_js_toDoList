@@ -1,15 +1,16 @@
-![](https://img.shields.io/badge/made%20with-JS-green?logo=vue.js).
+![](https://img.shields.io/badge/made%20with-vue.js-green?logo=vue.js).
 ![](https://img.shields.io/badge/made%20with-Bootstrap-green?logo=Bootstrap).
-![](https://img.shields.io/badge/made%20with-mongoDB-green?logo=mongoDB).
+![](https://img.shields.io/badge/made%20with-mongoDB-blue?logo=mongoDB).
 ![](https://img.shields.io/badge/made%20with-Node.js-green?logo=Node.js).
 <img src="https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2Frevolalex%2Fvue_js_toDoList" alt="Hits">.
 
 
 
 <img src="https://img.shields.io/badge/vue.router-green.svg" alt="Mangoose">.
+<img src="https://img.shields.io/badge/vuex-green.svg" alt="Mangoose">.
 <img src="https://img.shields.io/badge/Mongoose-blue.svg" alt="Mangoose">. 
 <img src="https://img.shields.io/badge/Express-blue.svg" alt="Express">. 
-<img src="https://img.shields.io/badge/axios-blue.svg" alt="axios">.
+<img src="https://img.shields.io/badge/axios-green.svg" alt="axios">.
 
 
 
@@ -100,7 +101,7 @@ Project is:  _finished_
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/alexandre-rodrigueza/
-![Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2Frevolalex%2Fvue_js_toDoList)
+
 
 
 
