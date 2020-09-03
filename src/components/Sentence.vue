@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <p
       v-if="numberOfToDo() === numberOfToDoTrue() && numberOfToDo() > 0"
       id="timeToWork"
@@ -12,12 +13,14 @@
 
     <p v-else-if="numberOfToDoFalse() < halfNumberOfToDo()" id="continue">
       <b-icon-emoji-smile class="iconRight"></b-icon-emoji-smile>
-      Continue that way and you will finish soon, still have {{numberOfToDoTrue()}}/{{numberOfToDo()}} tasks
+      Continue that way and you will finish soon, still have
+      {{numberOfToDoTrue()}}/{{numberOfToDo()}} tasks
       <b-icon-emoji-smile class="iconLeft"></b-icon-emoji-smile>
     </p>
 
     <p
-      v-else-if="numberOfToDoFalse() >= halfNumberOfToDo() && numberOfToDoFalse() < numberOfToDo()"
+      v-else-if="numberOfToDoFalse() >= halfNumberOfToDo()
+      && numberOfToDoFalse() < numberOfToDo()"
       id="good"
     >
       <b-icon-emoji-laughing class="iconRight"></b-icon-emoji-laughing>
@@ -25,7 +28,11 @@
       <b-icon-emoji-laughing class="iconLeft"></b-icon-emoji-laughing>
     </p>
 
-    <p v-if="numberOfToDo() > 0 && numberOfToDo() === numberOfToDoFalse()" id="congratulation">
+    <p
+      v-if="numberOfToDo() > 0 
+      && numberOfToDo() === numberOfToDoFalse()"
+      id="congratulation"
+    >
       <b-icon-emoji-sunglasses class="iconRight"></b-icon-emoji-sunglasses>
       Congratulation !! You finished all the {{numberOfToDo()}} tasks
       <b-icon-emoji-sunglasses class="iconLeft"></b-icon-emoji-sunglasses>
@@ -41,11 +48,13 @@
     >Work more !! {{numberOfToDoFalse()}}</p>
 
     <p
-      v-else-if="numberOfToDoFalse() >= halfNumberOfToDo() && numberOfToDoFalse() < numberOfToDo()"
+      v-else-if="numberOfToDoFalse() >= halfNumberOfToDo() 
+      && numberOfToDoFalse() < numberOfToDo()"
       id="good"
     >Continue {{numberOfToDoFalse()}} toDo done !</p>
 
     <p
+
       v-if="numberOfToDo() === numberOfToDoFalse() && numberOfToDo() > 0"
       id="congratulation"
     >Bravo !! All done Superman</p>
