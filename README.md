@@ -1,11 +1,17 @@
-<img src="https://img.shields.io/badge/made%20with-vue.js-green.svg" alt="made with vue.js">. 
+![](https://img.shields.io/badge/made%20with-JS-green?logo=vue.js).
+![](https://img.shields.io/badge/made%20with-mongoDB-green?logo=Bootstrap).
+![](https://img.shields.io/badge/made%20with-mongoDB-green?logo=mongoDB).
+![](https://img.shields.io/badge/made%20with-mongoDB-green?logo=Node.js).
+<img src="https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2Frevolalex%2Fvue_js_toDoList" alt="Hits">.
+
+
+
 <img src="https://img.shields.io/badge/vue.router-green.svg" alt="Mangoose">.
-<img src="https://img.shields.io/badge/bootstrap.vue-green.svg" alt="bootstap">. 
-<img src="https://img.shields.io/badge/node.js-blue.svg" alt="made with node.js">. 
 <img src="https://img.shields.io/badge/Mongoose-blue.svg" alt="Mangoose">. 
 <img src="https://img.shields.io/badge/Express-blue.svg" alt="Express">. 
 <img src="https://img.shields.io/badge/axios-blue.svg" alt="axios">.
-<img src="https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2Frevolalex%2Fvue_js_toDoList" alt="Hits">
+
+
 
 # Project Name : Vue.js ToDoList - Full Satck
 > My first vue.js Full-Stack project
