@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/made%20with-JS-green?logo=vue.js).
-![](https://img.shields.io/badge/made%20with-mongoDB-green?logo=Bootstrap).
+![](https://img.shields.io/badge/made%20with-Bootstrap-green?logo=Bootstrap).
 ![](https://img.shields.io/badge/made%20with-mongoDB-green?logo=mongoDB).
-![](https://img.shields.io/badge/made%20with-mongoDB-green?logo=Node.js).
+![](https://img.shields.io/badge/made%20with-Node.js-green?logo=Node.js).
 <img src="https://hitcounter.pythonanywhere.com/count/tag.svg?url=https%3A%2F%2Fgithub.com%2Frevolalex%2Fvue_js_toDoList" alt="Hits">.
 
 
