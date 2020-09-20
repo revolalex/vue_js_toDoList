@@ -30,7 +30,7 @@
     <div>
       <b-button
         v-b-toggle.sidebar-right
-        v-b-popover.hover.bottom="'Click Here to read the documentaion'"
+        v-b-popover.hover.left="'Click Here to read the documentaion'"
         title="Information"
       >About</b-button>
       <b-sidebar id="sidebar-right" title="About" right shadow>

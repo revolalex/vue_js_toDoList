@@ -1,26 +1,30 @@
 import "@babel/polyfill";
 import "mutationobserver-shim";
+import "es6-promise/auto";
+// Bootstrap
 import "./plugins/bootstrap-vue";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
-import VueRouter from "vue-router";
-import axios from "axios";
-import VueAxios from "vue-axios";
-import routes from "./routes";
-import "es6-promise/auto";
-import Vue from "vue";
-import Vuex from "vuex";
-import App from "./App.vue";
-import store from "./components/TodoStore";
-
-Vue.use(Vuex);
-Vue.use(VueAxios, axios);
-Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
+// Router
+import VueRouter from "vue-router";
+import routes from "./routes";
+Vue.use(VueRouter);
+const router = new VueRouter({ routes });
+// Vuex
+import Vuex from "vuex";
+import store from "./components/TodoStore";
+Vue.use(Vuex);
+// Axios
+import axios from "axios";
+import VueAxios from "vue-axios";
+Vue.use(VueAxios, axios);
+
+// Vue
+import Vue from "vue";
+import App from "./App.vue";
 
 Vue.config.productionTip = false;
-
-const router = new VueRouter({ routes });
 
 new Vue({
   store,
