@@ -167,7 +167,7 @@ p {
   }
 
   15% {
-    transform: translateX(100vw) translateY(-100%) rotateZ(180deg);
+    transform: translateX(100vw) translateY(-100%) rotateZ(60deg);
   }
 
   15.001%,
